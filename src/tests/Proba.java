@@ -5,7 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 public class Proba {
-	
 	@Test
 	public void test() throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -16,4 +15,7 @@ public class Proba {
 		Thread.sleep(5000);
 		//ova linija je testna
 	}
+	
+	
+	
 }
