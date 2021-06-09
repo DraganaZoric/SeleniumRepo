@@ -13,6 +13,7 @@ public class Proba {
 		WebDriver driver = new ChromeDriver();
 		//driver.get("https://www.google.com");
 		driver.navigate().to("https://www.google.com");
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+		//ova linija je testna
 	}
 }
