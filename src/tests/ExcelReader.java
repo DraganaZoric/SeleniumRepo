@@ -16,31 +16,25 @@ public class ExcelReader {
 	XSSFSheet sheet;
 	XSSFRow row;
 	XSSFCell cell;
-	
+
 	public ExcelReader(String filePath) throws IOException {
 		file = new File(filePath);
 		fis = new FileInputStream(file);
 		wb = new XSSFWorkbook(fis);
 	}
-	
+
 	public String getStringDaTA(String sheetName, int rowNumber, int columnNumber) {
 		sheet = wb.getSheet(sheetName);
 		row = sheet.getRow(rowNumber);
 		cell = row.getCell(columnNumber);
 		return cell.getStringCellValue();
 	}
-	
+
 	public int getIntegerData(String sheetName, int rowNumber, int columnNumber) {
 		sheet = wb.getSheet(sheetName);
 		row = sheet.getRow(rowNumber);
 		cell = row.getCell(columnNumber);
-		return (int)cell.getNumericCellValue();
+		return (int) cell.getNumericCellValue();
 	}
-	
-	
-	
-	
-	
-	
-}
 
+}

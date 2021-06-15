@@ -25,7 +25,7 @@ public class BaseTests {
 	MyAccountPage myAccountPage;
 	MyPersonalInfoPage myPersonalInfoPage;
 	MyWishListPage myWishListPage;
-	
+
 	@BeforeClass
 	public void preSvihTestova() throws IOException {
 		System.setProperty("webdriver.chrome.driver", "driver-lib\\chromedriver.exe");
@@ -37,10 +37,11 @@ public class BaseTests {
 		myAccountPage = new MyAccountPage(driver);
 		myPersonalInfoPage = new MyPersonalInfoPage(driver);
 		myWishListPage = new MyWishListPage(driver);
-		
+
 		citacIzExcela = new ExcelReader("data/AutomationTestPlan.xlsx");
 		homeUrl = "http://automationpractice.com/index.php";
 	}
+
 	@AfterClass
 	public void posleSvihTestova() {
 		driver.close();

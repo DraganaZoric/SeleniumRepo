@@ -6,22 +6,21 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class MyPersonalInfoTests extends BaseTests{
-	
+public class MyPersonalInfoTests extends BaseTests {
+
 	@BeforeMethod
 	public void preSvakogTesta() {
 		driver.navigate().to(homeUrl);
 		driver.manage().window().maximize();
 	}
-	
+
 	@Test(priority = 0)
 	public void editPersolanInformation() throws InterruptedException {
-		
+
 		String email = citacIzExcela.getStringDaTA("MyAccountTests", 2, 2);
 		String password = String.valueOf(citacIzExcela.getIntegerData("MyPersonalInfoTests", 3, 2));
 		logInFormFilling(email, password);
 		myPersonalInfoPage.myPersonalInfoButtonClick();
-		Thread.sleep(3000);
 		String firstName = citacIzExcela.getStringDaTA("MyPersonalInfoTests", 9, 2);
 		myPersonalInfoPage.firstNameInputField(firstName);
 		String lastName = citacIzExcela.getStringDaTA("MyPersonalInfoTests", 10, 2);
@@ -44,34 +43,20 @@ public class MyPersonalInfoTests extends BaseTests{
 		String textForAssertion = citacIzExcela.getStringDaTA("MyPersonalInfoTests", 20, 2);
 		String actualText = myPersonalInfoPage.textFromIdentityConfirmation();
 		assertEquals(actualText, textForAssertion);
-		
+
 	}
-	
-	
+
 	public void logInFormFilling(String email, String password) throws InterruptedException {
 		navigationPage.getSignInTabClick();
-		Thread.sleep(1000);
 		loginPage.insertEmail(email);
-		Thread.sleep(1000);
 		loginPage.insertPassword(password);
-		Thread.sleep(1000);
 		loginPage.signInButtonClick();
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	@AfterMethod
-	public void posleSvakogTesta() throws InterruptedException {		
+	public void posleSvakogTesta() throws InterruptedException {
 		driver.manage().deleteAllCookies();
 		driver.navigate().refresh();
 	}
-	
-	
-	
-	
 
 }
